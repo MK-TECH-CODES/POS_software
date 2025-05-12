@@ -1,17 +1,34 @@
 {
   "name": "posnavigation",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "Build_win_64": "electron-builder --win --x64 --publish always"
+  },
+  "build": {
+    "appId": "com.Zaptian.POS_Software",
+    "productName": "POS_Software",
+    "win": {
+      "target": "nsis"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "MK-TECH-CODES",
+        "repo": "POS_software"
+      }
+    ]
   },
   "keywords": [],
   "author": "Zaptian Team",
   "license": "ISC",
   "description": "POS navigation details",
   "dependencies": {
-    "electron": "^36.2.0",
-    "electron-builder": "^26.0.12",
     "electron-updater": "^6.6.2"
+  },
+  "devDependencies": {
+    "electron": "^36.2.0",
+    "electron-builder": "^26.0.12"
   }
 }
