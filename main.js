@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, dialog } = require("electron");
 const { autoUpdater } = require("electron-updater");
 
 const NavigationWindow = () => {
@@ -38,4 +38,10 @@ autoUpdater.on("update-downloaded", () => {
 
 app.whenReady().then(() => {
   NavigationWindow();
+});
+
+app.on("window-all-closed", () => {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
 });
