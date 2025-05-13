@@ -9,7 +9,7 @@ const NavigationWindow = () => {
   });
   window.loadFile("Renderer/template.html");
 
-  mainWindow.webContents.on("did-finish-load", () => {
+  window.webContents.on("did-finish-load", () => {
     autoUpdater.checkForUpdatesAndNotify();
   });
 };
